@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN" "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
- 
+<!DOCTYPE module PUBLIC "-//Checkstyle//DTD Check Configuration 1.3//EN" "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
 <!--
     This configuration file was written by the eclipse-cs plugin configuration editor
 -->
 <!--
-    Checkstyle-Configuration: prj_checks
+    Checkstyle-Configuration: check
     Description: none
 -->
 <module name="Checker">
@@ -14,18 +14,18 @@
     <module name="JavadocMethod">
       <metadata name="net.sf.eclipsecs.core.comment" value="检查方法和构造函数的javadoc"/>
       <message key="javadoc.duplicateTag" value="重复的{ 0 }标记。"/>
-      <message key="javadoc.classInfo" value="无法获得类信息为{ 0 }标记“{ 1 }”。"/>
-      <message key="javadoc.missing" value="缺少注释"/>
-      <message key="javadoc.expectedTag" value="Expected {0} tag for ''{1}''.在注释中希望有{0}的说明。"/>
       <message key="javadoc.unusedTagGeneral" value="Unused Javadoc tag.未使用javadoc标签"/>
-      <message key="javadoc.invalidInheritDoc" value="Invalid use of the '{'@inheritDoc'}' tag.无效用的{@inheritDoc}标签"/>
+      <message key="javadoc.classInfo" value="无法获得类信息为{ 0 }标记“{ 1 }”。"/>
+      <message key="javadoc.expectedTag" value="Expected {0} tag for ''{1}''.在注释中希望有{0}的说明。"/>
       <message key="javadoc.return.expected" value="Expected an @return tag.预计一个返回标签"/>
+      <message key="javadoc.missing" value="缺少注释"/>
+      <message key="javadoc.invalidInheritDoc" value="Invalid use of the '{'@inheritDoc'}' tag.无效用的{@inheritDoc}标签"/>
     </module>
     <module name="JavadocType">
       <metadata name="net.sf.eclipsecs.core.comment" value="检查类和接口的javadoc。默认不检查author 和version tags。"/>
-      <message key="javadoc.missing" value="方法前面缺少javadoc注释"/>
-      <message key="javadoc.unusedTagGeneral" value="Unused Javadoc tag.未使用的Javadoc标签。"/>
       <message key="javadoc.unusedTag" value="Unused {0} tag for ''{1}''.无法获得类信息为{ 0 }标记“{ 1 }”。"/>
+      <message key="javadoc.unusedTagGeneral" value="Unused Javadoc tag.未使用的Javadoc标签。"/>
+      <message key="javadoc.missing" value="方法前面缺少javadoc注释"/>
     </module>
     <module name="JavadocVariable">
       <metadata name="net.sf.eclipsecs.core.comment" value="检查变量的javadoc。"/>
@@ -33,8 +33,8 @@
     </module>
     <module name="JavadocStyle">
       <metadata name="net.sf.eclipsecs.core.comment" value="检查javadoc的格式"/>
-      <message key="javadoc.missing" value="方法前面缺少javadoc注释"/>
       <message key="javadoc.empty" value="Javadoc has empty description section.javadoc有空描述段"/>
+      <message key="javadoc.missing" value="方法前面缺少javadoc注释"/>
     </module>
     <module name="ConstantName">
       <metadata name="net.sf.eclipsecs.core.comment" value="检查常量名。"/>
@@ -116,23 +116,23 @@
     <module name="EmptyForIteratorPad">
       <metadata name="net.sf.eclipsecs.core.comment" value="检查空的迭代位置的空白。"/>
       <property name="severity" value="ignore"/>
-      <message key="ws.followed" value="''{0}'' 后面不能有空格"/>
       <message key="ws.notFollowed" value="''{0}'' 后面缺少空格"/>
+      <message key="ws.followed" value="''{0}'' 后面不能有空格"/>
       <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>
     <module name="GenericWhitespace">
       <metadata name="net.sf.eclipsecs.core.comment" value="检查&lt;和&gt;周围的空白。"/>
+      <message key="ws.notPreceded" value="''{0}'' 前面缺少空格."/>
       <message key="ws.followed" value="''{0}'' 后面不能有空格"/>
       <message key="ws.illegalFollow" value="''{0}''后面不能跟非法字符."/>
       <message key="ws.preceded" value="''{0}'' 前面不能有空格."/>
-      <message key="ws.notPreceded" value="''{0}'' 前面缺少空格."/>
     </module>
     <module name="MethodParamPad">
       <metadata name="net.sf.eclipsecs.core.comment" value="检查方法签名之前的空白。"/>
       <property name="severity" value="ignore"/>
-      <message key="ws.preceded" value="''{0}'' 前面不能有空格."/>
       <message key="ws.notPreceded" value="''{0}''前面缺少空格."/>
       <message key="line.previous" value="''{0}'' 应该位于前一行."/>
+      <message key="ws.preceded" value="''{0}'' 前面不能有空格."/>
       <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>
     <module name="NoWhitespaceAfter">
@@ -149,26 +149,25 @@
     </module>
     <module name="OperatorWrap">
       <metadata name="net.sf.eclipsecs.core.comment" value="检查操作符的空白规则。"/>
-      <message key="line.new" value="''{0}'' 应该位于新的一行."/>
       <message key="line.previous" value="''{0}'' 应该位于前一行."/>
+      <message key="line.new" value="''{0}'' 应该位于新的一行."/>
     </module>
     <module name="ParenPad">
       <metadata name="net.sf.eclipsecs.core.comment" value="检查圆括号的空白规则。"/>
       <property name="severity" value="ignore"/>
-      <message key="ws.followed" value="''{0}''后面不能有空格."/>
-      <message key="ws.preceded" value="''{0}''前面不能有空格."/>
       <message key="ws.notPreceded" value="''{0}'' 前面缺少空格."/>
       <message key="ws.notFollowed" value="''{0}'' 后面缺少空格."/>
+      <message key="ws.followed" value="''{0}''后面不能有空格."/>
+      <message key="ws.preceded" value="''{0}''前面不能有空格."/>
       <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>
     <module name="TypecastParenPad">
       <metadata name="net.sf.eclipsecs.core.comment" value="检查强制转型的圆括号的空白规则"/>
       <property name="severity" value="ignore"/>
-      <property name="tokens" value="RPAREN,TYPECAST"/>
-      <message key="ws.followed" value="''{0}'' 后面不能有空格"/>
-      <message key="ws.preceded" value="''{0}'' 前面不能有空格."/>
       <message key="ws.notPreceded" value="''{0}'' 前面缺少空格."/>
       <message key="ws.notFollowed" value="''{0}'' 后面缺少空格."/>
+      <message key="ws.followed" value="''{0}'' 后面不能有空格"/>
+      <message key="ws.preceded" value="''{0}'' 前面不能有空格."/>
       <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>
     <module name="WhitespaceAfter">
@@ -203,8 +202,8 @@
     <module name="LeftCurly">
       <metadata name="net.sf.eclipsecs.core.comment" value="检查’{’和左边的代码块是否在同一行。"/>
       <property name="severity" value="ignore"/>
-      <message key="line.new" value="''{0}'' 在行列中 {1}应该位于新的一行"/>
       <message key="line.previous" value="''{0}'' 在行列中 {1} 应该位于之前的一行."/>
+      <message key="line.new" value="''{0}'' 在行列中 {1}应该位于新的一行"/>
       <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>
     <module name="NeedBraces">
