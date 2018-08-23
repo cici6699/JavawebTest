@@ -1,0 +1,25 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.testdemo.web.dao.QuestionDao">
+    <!--设置Question类和数据库中表的字段一一对应 -->
+    <resultMap id="QuestionResultMap" type="com.testdemo.web.vo.Question">
+        <id column="question_id" property="qustionId" jdbcType="INTEGER" />
+        <result column="content" property="content" jdbcType="CHAR" />
+        <result column="answer" property="answer" jdbcType="CHAR" />
+        <result column="type_id" property="typeId" jdbcType="CHAR" />
+        <result column="right_answer" property="rightAnswer" jdbcType="CHAR" />
+        <result column="answer_info" property="answerInfo" jdbcType="CHAR" />
+        <result column="user_id" property="userId" jdbcType="INTEGER" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <!--数据库操作-->
+    <select id="findByTypeId" parameterType="INTEGER" resultMap="QuestionResultMap">
+        select * from questiontbl where type_id = #{typeId}
+    </select>
+
+    <select id="findByQuestionId" parameterType="INTEGER" resultMap="QuestionResultMap">
+        select * from questiontbl where question_id = #{questionId}
+    </select>
+
+</mapper>
