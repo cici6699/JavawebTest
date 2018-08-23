@@ -1,0 +1,24 @@
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    <mapper namespace="com.testdemo.web.dao.StudentDao">  
+    <!--设置User类和数据库中表的字段一一对应-->  
+        <resultMap id="studentResultMap" type="com.testdemo.web.vo.Student">  
+  			<id column="user_id" property="userId" jdbcType="INTEGER" />  
+            <result column="user_name" property="userName" jdbcType="CHAR" />
+            <result column="user_age" property="userAge" jdbcType="INTEGER" />
+            <result column="user_password" property="userPassword" jdbcType="CHAR" /> 
+            <result column="user_grade" property="userGrade" jdbcType="CHAR" />  
+            <result column="user_email" property="userEmail" jdbcType="CHAR" />  
+        </resultMap>   
+
+        <!-- 查询单条记录 -->  
+        <select id="findById" parameterType="Integer" resultMap="studentResultMap">  
+            <!-- select user_id, user_name,user_password,user_email from usertbl  -->
+            <!-- where user_name = #{name}  and user_password = #{psw} -->
+            select * from usertbl where user_id=#{userId}
+        </select> 
+        <select id="findByName" parameterType="String" resultMap="studentResultMap">
+        	select * from usertbl where user_name=#{userName}
+        </select>
+        
+    </mapper>  

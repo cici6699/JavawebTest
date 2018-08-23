@@ -30,7 +30,6 @@ public class AuthenticateUserController {
 		ModelAndView mav = new ModelAndView("index");
 		return mav;
 	} 
-	
 	/**
 	 * 登录系统
 	 * 教学内容：post方式传输页面，页面参数转换，session用法
@@ -49,6 +48,7 @@ public class AuthenticateUserController {
 			mav = new ModelAndView("login");
 			mav.addObject("error", "用户名或密码错误信息！");
 		} else {
+			//记录当前登录用户
 			session.setAttribute("currUser", user);
 			mav = new ModelAndView("introduce");
 		} 
@@ -80,7 +80,13 @@ public class AuthenticateUserController {
 		ModelAndView mav = new ModelAndView("introduce");
 		return mav;
 	}
-
+	@RequestMapping(value="/chengfa")
+	public ModelAndView chengfa()
+	{
+		ModelAndView mav =new ModelAndView("testChengfa");
+		return mav;
+	}
+	
 	@RequestMapping(value = "/to_reginster")
 	public ModelAndView getReginster() {
 		ModelAndView mav = new ModelAndView("reginsteruser");

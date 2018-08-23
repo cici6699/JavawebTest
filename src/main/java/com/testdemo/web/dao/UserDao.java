@@ -26,5 +26,4 @@ public interface UserDao {
    public int insert(User u);
    public int delete(@Param("user_id") Integer id);
    public List<User> list(@Param("user_name") String name);
- 
 }  
